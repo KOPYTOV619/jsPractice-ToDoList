@@ -21,13 +21,16 @@ body
 	&__h1
 		margin: 0
 		font-weight: 700
-		font-size: 40px
+		font-size: 30px
 		color: #333333
 	&__autor
 		font-weight: 400
 		font-size: 14px
 		line-height: 17px
 		color: #BDBDBD
+		a
+			text-decoration: none
+			color: #828282
 	&__line
 		margin-top: 30px
 		display: block
@@ -44,10 +47,10 @@ body
 		align-items: center
 		list-style: none
 		padding: 20px 0
-		font-weight: 600
-		font-size: 18px
+		font-weight: 400
+		font-size: 16px
 		line-height: 40px
-		color: #000000
+		color: #333333
 		&:hover
 			.delete
 				position: relative
@@ -58,7 +61,6 @@ body
 				background-size: 100%
 				background-repeat: no-repeat
 				background-position: center
-				//transform: translateY(25%)
 				cursor: pointer
 		&-contant
 			width: 90%
@@ -76,7 +78,7 @@ body
 	display: flex
 	justify-content: space-between
 	align-items: center
-	margin-top: 30px
+	margin-top: 50px
 	&__input
 		padding: 15px
 		box-sizing: border-box
@@ -98,5 +100,6 @@ body
 		font-weight: 400
 		font-size: 16px
 		color: #fff
+		transition: all 0.5s
 		&:hover
 			background: #27AE60
