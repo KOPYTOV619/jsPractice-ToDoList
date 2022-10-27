@@ -5,41 +5,42 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ToDoList</title>
+	<title>ToDo List</title>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/css/style.min.css">
 </head>
 
 <body>
+	<div class="contant">
+		<header class="header">
+			<h1 class="header__h1">ToDo List</h1>
+			<div class="header__autor">by kopytov619</div>
 
-	<h1>ToDoList</h1>
+		</header>
 
-	<section class="task__list">
+		<span class="header__line"></span>
 
-		<ul class="list__lines">
-			<li class="list__lines-item"><input type="checkbox"> Задача 1
-				<div class="delete"><img src="/icons/cross-with-circle.svg" alt="img"class="icon_delete"></div>
-			</li>
-			<li class="list__lines-item"><input type="checkbox"> Задача 2
-				<div class="delete"><img src="/icons/cross-with-circle.svg" alt="img"class="icon_delete"></div>
-			</li>
-			<li class="list__lines-item"><input type="checkbox"> Задача 3
-				<div class="delete"><img src="/icons/cross-with-circle.svg" alt="img"class="icon_delete"></div>
-			</li>
-			<li class="list__lines-item"><input type="checkbox"> Задача 4
-				<div class="delete"><img src="/icons/cross-with-circle.svg" alt="img"class="icon_delete"></div>
-			</li>
-			<li class="list__lines-item"><input type="checkbox"> Задача 5
-				<div class="delete"><img src="/icons/cross-with-circle.svg" alt="img"class="icon_delete"></div>
-			</li>
-		</ul>
+		<section class="task__list">
+			<ul class="list__lines">
+				<li class="list__lines-item">
+					<div class="list__lines-content">
+						<input class="checkbox" type="checkbox">
+						Задача
+					</div>
+					<div class="delete"></div>
+				</li>
+				<span class="list__lines-span"></span>
+			</ul>
 
-		<form action="" class="add__list">
-			<input type="text" class="add__input" type="text" placeholder="Добавить задачу...">
-			<button>Добавить</button>
-		</form>
+			<form action="" class="add">
+				<input type="text" class="add__input" type="text" placeholder="Новая задача">
+				<button class="add__btn">Добавить</button>
+			</form>
 
-	</section>
+		</section>
 
+	</div>
+	
 	<script src="/js/script.js"></script>
 </body>
 
