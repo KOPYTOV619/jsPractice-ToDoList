@@ -3,26 +3,23 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 	let taskBD = {
-		base: [
-			"Сходить в магазин",
-			"Выкинуть мусор и покормить двух котов",
-			"Полить цветы",
-			"Приготовить обед"
-		]
+		base: []
 	};
 
 	let taskList = document.querySelector('.list__lines'),
 		addForm = document.querySelector('form.add'),
-		addInput = addForm.querySelector('.add__input'),
-		checkbox = addForm.querySelector('[type="checkbox"]');
+		addInput = addForm.querySelector('.add__input');
 
 	addForm.addEventListener('submit', (event) => {
 		event.preventDefault(); // Отключаем стандартное поведение браузера
 		let newLine = addInput.value; // Проверяем, что ввел пользователь
-		//let ready = checkbox.checked; // Проверяем нажат ли чекбокс
-		taskBD.base.push(newLine); // Добавляем новую задачу в БД
-		sortList(taskBD.base); // Сортировка списка задач в БД после добавления новой задачи 
-		createNewLine(taskBD.base, taskList); // Создаем новую задачу
+
+		if (newLine) {
+			taskBD.base.push(newLine); // Добавляем новую задачу в БД
+			sortList(taskBD.base); // Сортировка списка задач в БД после добавления новой задачи 
+			createNewLine(taskBD.base, taskList); // Создаем новую задачу
+		}
+
 		event.target.reset(); // Очищаем форму после нажатия кнопки
 	});
 
@@ -35,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Создаем новую задачу
 	let createNewLine = (lists, parent) => {
-
+		sortList(taskBD.base);
 		parent.innerHTML = ""; // Очистим список
 
 		// Выводим на экран список задач из Базы
@@ -49,6 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
 			</li>
 			<span class="list__lines-span"></span>
 		`;
+		});
+		// Удаляем строку при клике на крестик
+		document.querySelectorAll('.delete').forEach((btn, i) => {
+			btn.addEventListener('click', () => {
+				btn.parentElement.remove();
+				taskBD.base.splice(i, 1);
+				createNewLine(lists, parent);
+			});
+		});
+		// Меняем состояние строки в зависимости от состояния чекбокса
+		document.querySelectorAll('input.checkbox').forEach((item) => {
+			item.addEventListener('click', () => {
+				if (item.checked) {
+					item.parentElement.style.cssText = 'text-decoration-line: line-through;';
+				} else {
+					item.parentElement.style.cssText = 'text-decoration-line: none;';
+				}
+			});
 		});
 	};
 
