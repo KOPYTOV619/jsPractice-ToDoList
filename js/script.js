@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Выводим на экран список задач из Базы
 		lists.forEach((item, i) => {
 			parent.innerHTML += `
-			<li class="list__lines-item">
+			<li class="list__lines-item ">
 				<div class="list__lines-content">
 					<input class="checkbox" type="checkbox">${i + 1}. ${item}
 				</div>
@@ -59,9 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.querySelectorAll('input.checkbox').forEach((item) => {
 			item.addEventListener('click', () => {
 				if (item.checked) {
-					item.parentElement.style.cssText = 'text-decoration-line: line-through;';
+					item.parentElement.classList.add('ready');
 				} else {
-					item.parentElement.style.cssText = 'text-decoration-line: none;';
+					item.parentElement.classList.remove('ready');
 				}
 			});
 		});
